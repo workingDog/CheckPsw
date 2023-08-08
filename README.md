@@ -1,4 +1,4 @@
-# CheckSec
+# CheckPsw
 
 
 A simple **SwiftUI** app to check if your password has been leaked using [Pwned Passwords](https://haveibeenpwned.com/Passwords)
@@ -11,7 +11,7 @@ From the reference:
 
 ## Note
 
-Your password **is not sent** to `Pwned Passwords`, **only** the first 5 characters 
+Your password **is not sent** to [Pwned Passwords](https://haveibeenpwned.com/Passwords), **only** the first 5 characters 
 of the `SHA-1` hashed password is.
 
 
