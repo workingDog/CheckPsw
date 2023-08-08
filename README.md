@@ -1,7 +1,7 @@
 # CheckSec
 
 
-A simple **SwiftUI** app to check if your password has been leaked using `Pwned Passwords` at https://haveibeenpwned.com/Passwords
+A simple **SwiftUI** app to check if your password has been leaked using [Pwned Passwords](https://haveibeenpwned.com/Passwords)
 
 From the reference: 
 
