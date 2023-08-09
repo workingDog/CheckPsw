@@ -57,7 +57,9 @@ struct ContentView: View {
         
         if let url = URL(string: "https://api.pwnedpasswords.com/range/\(prefix)") {
             do {
-                let (data, _) = try await URLSession.shared.data(from: url)
+                var request = URLRequest(url: url)
+                request.addValue("true", forHTTPHeaderField: "Add-Padding")
+                let (data, _) = try await URLSession.shared.data(for: request)
                 let theResponse = String(data: data, encoding: .utf8)!.lowercased()
                 if let range = theResponse.range(of: "(\(sufix):\\d+)", options: .regularExpression) {
                     let count = theResponse[range].split(separator: ":").last ?? "0"
