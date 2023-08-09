@@ -23,7 +23,7 @@ struct ContentView: View {
                     msg = ""
                     if !psw.isEmpty {
                         Task {
-                            pswCount = await askPwned(hash: getSha1(for: psw))
+                            pswCount = await askPwned(psw)
                             if pswCount > 0 {
                                 msg = """
                     Oh no — pwned!
@@ -50,7 +50,8 @@ struct ContentView: View {
         Insecure.SHA1.hash(data: str.data(using: .utf8)!).map{ String(format: "%02x", $0) }.joined()
     }
     
-    func askPwned(hash: String) async -> Int {
+    func askPwned(_ psw: String) async -> Int {
+        let hash = getSha1(for: psw)
         let prefix = String(hash.prefix(5))
         let sufix = String(hash.dropFirst(5))
         
