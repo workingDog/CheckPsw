@@ -60,8 +60,7 @@ struct ContentView: View {
                 let (data, _) = try await URLSession.shared.data(from: url)
                 let theResponse = String(data: data, encoding: .utf8)!.lowercased()
                 if let range = theResponse.range(of: "(\(sufix):\\d+)", options: .regularExpression) {
-                    let result = String(theResponse[range])
-                    let count = String(result.split(separator: ":").last ?? "0")
+                    let count = theResponse[range].split(separator: ":").last ?? "0"
                     return if Int(count) != nil { Int(count)! } else { 0 }
                 }
             } catch {
